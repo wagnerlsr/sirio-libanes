@@ -16,7 +16,7 @@ import java.util.List;
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(columnDefinition = "LONG")
+//	@Column(columnDefinition = "serial")
 	private Long id;
 
 	@NotNull
