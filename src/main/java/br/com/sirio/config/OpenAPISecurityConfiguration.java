@@ -10,10 +10,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @OpenAPIDefinition(
         info =@Info(
-                title = "User API",
+                title = "Sirio Libânes - Portal de testes",
                 version = "1.0",
                 contact = @Contact(
-                        name = "Sirio", email = "user-apis@sirio.com.br", url = "https://www.sirio.com.br"
+                        name = "Sirio Libânes", email = "user-apis@sirio.com.br", url = "https://www.sirio.com.br"
                 ),
                 license = @License(
                         name = "Apache 2.0", url = "https://www.apache.org/licenses/LICENSE-2.0"

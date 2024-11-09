@@ -89,7 +89,7 @@ public class UserControllerTests {
                         .content(asJsonString(userDto))
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
+                .andExpect(status().isCreated())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.cpf").value(userDto.cpf()))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.name").value(userDto.name()))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.status").value(StatusType.ACTIVE.name()));
@@ -120,7 +120,7 @@ public class UserControllerTests {
                         .content(asJsonString(userDto))
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
+                .andExpect(status().isCreated())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.cpf").value(userDto.cpf()))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.name").value(userDto.name()))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.status").value(StatusType.ACTIVE.name()));
@@ -173,7 +173,7 @@ public class UserControllerTests {
                         .content(asJsonString(userDto))
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
+                .andExpect(status().isCreated())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.cpf").value(userDto.cpf()));
 
         result = mvc.perform(post("/login").contentType(MediaType.APPLICATION_JSON).content(userRequest))
@@ -220,7 +220,7 @@ public class UserControllerTests {
                         .content(asJsonString(userDto))
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
+                .andExpect(status().isCreated())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.cpf").value(userDto.cpf()));
 
         mvc.perform(delete("/users/" + userDto.cpf())
@@ -271,7 +271,7 @@ public class UserControllerTests {
                         .content(asJsonString(createUserDto))
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
+                .andExpect(status().isCreated())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.cpf").value(createUserDto.cpf()))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.name").value(createUserDto.name()))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.address").value(createUserDto.address()))

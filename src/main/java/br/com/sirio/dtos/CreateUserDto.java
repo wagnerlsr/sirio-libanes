@@ -1,52 +1,53 @@
 package br.com.sirio.dtos;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.Builder;
 
 @Builder
 public record CreateUserDto(
-        @NotNull(message = "cpf.null")
-        @NotBlank(message = "cpf.blank")
+        @Size(max = 11)
+        @NotBlank(message = "CPF não pode ser nulo ou estar em branco.")
         @JsonProperty("cpf")
         String cpf,
 
-        @NotNull(message = "password.null")
-        @NotBlank(message = "password.blank")
+        @Size(min = 4, max = 20, message = "Senha de ter entre 4 a 20 caracteres.")
         @JsonProperty("password")
         String password,
 
-        @NotNull(message = "name.null")
-        @NotBlank(message = "name.blank")
+        @Size(max = 50, min = 2, message = "Nome de ter entre 2 a 50 caracteres.")
+        @NotBlank(message = "Nome não pode ser nulo ou estar em branco.")
         @JsonProperty("name")
         String name,
 
-        @NotNull(message = "zip_code.null")
+        @NotNull(message = "CEP não pode ser nulo ou estar em branco.")
+        @Max(value = 99999999, message = "CEP não pode ter mais do que 8 caracteres.")
         @JsonProperty("zip_code")
         Integer zipCode,
 
-        @NotNull(message = "address.null")
-        @NotBlank(message = "address.blank")
+        @Size(max = 50)
+        @NotBlank(message = "Endereço não pode ser nulo ou estar em branco.")
         @JsonProperty("address")
         String address,
 
-        @NotNull(message = "number_address.null")
+        @NotNull(message = "Numero não pode ser nulo ou estar em branco.")
+        @Max(value = 999999999, message = "Numero não pode ter mais do que 9 caracteres.")
         @JsonProperty("number_address")
         Integer numberAddress,
 
-        @NotNull(message = "additional_address.null")
-        @NotBlank(message = "additional_address.blank")
         @JsonProperty("additional_address")
         String additionalAddress,
 
-        @NotNull(message = "district.null")
-        @NotBlank(message = "district.blank")
+        @Size(max = 30)
+        @NotBlank(message = "Bairro não pode ser nulo ou estar em branco.")
         @JsonProperty("district")
         String district,
 
-        @NotNull(message = "state.null")
-        @NotBlank(message = "state.blank")
+        @Size(max = 2, min = 2, message = "Estado tem que ter 2 caracteres.")
+        @NotBlank(message = "Estado não pode ser nulo ou estar em branco.")
         @JsonProperty("state")
         String state
 ){

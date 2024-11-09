@@ -3,9 +3,7 @@ package br.com.sirio.dtos;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,36 +14,30 @@ import lombok.NoArgsConstructor;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UpdateUserDto {
-        @NotNull(message = "name.null")
-        @NotBlank(message = "name.blank")
+        @Size(max = 50, min = 2, message = "Nome de ter entre 2 a 50 caracteres.")
         @JsonProperty("name")
         public String name;
 
-        @NotNull(message = "zip_code.null")
+        @Max(value = 99999999, message = "CEP não pode ter mais do que 8 caracteres.")
         @JsonProperty("zip_code")
         public Integer zipCode;
 
-        @NotNull(message = "address.null")
-        @NotBlank(message = "_address.blank")
+        @Size(max = 50)
         @JsonProperty("address")
         public String address;
 
-        @NotNull(message = "number_address.null")
+        @Max(value = 999999999, message = "Numero não pode ter mais do que 9 caracteres.")
         @JsonProperty("number_address")
         public Integer numberAddress;
 
-        @NotNull(message = "additional_address.null")
-        @NotBlank(message = "additional_address.blank")
         @JsonProperty("additional_address")
         public String additionalAddress;
 
-        @NotNull(message = "district.null")
-        @NotBlank(message = "district.blank")
+        @Size(max = 30)
         @JsonProperty("district")
         public String district;
 
-        @NotNull(message = "state.null")
-        @NotBlank(message = "state.blank")
+        @Size(max = 2, min = 2, message = "Estado tem que ter 2 caracteres.")
         @JsonProperty("state")
         public String state;
 }

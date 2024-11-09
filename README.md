@@ -32,7 +32,14 @@ Para executar os testes unitários:
 
 Para acessar o cliente da API usar o link abaixo:
 * Link de acesso ao portal - [http://localhost:3000/swagger-ui/index.html](http://localhost:3000/swagger-ui/index.html)
+
+
 * [POST /login](http://localhost:3000/swagger-ui/index.html#/user-controller/authenticateUser) - endpoint de login para recuparação do token de acesso
+    
+    Após fazer login com a credencial de administrador ou de usuário utilizar o token retornado para acesso aos endpoints abaixo.
+
+    Utilizar o campo Authorize do portal Swagger para fazer login com o token recuperado.
+
 
 ## Endpoints com a role ADMIN para acesso por usuários com perfil de administrador:
 * [POST /signup](http://localhost:3000/swagger-ui/index.html#/user-controller/createUser) - endpoint para criação de um usuário
@@ -59,5 +66,8 @@ Será criado um usário com perfil administrador
 
 ##
 ## Justificativas
-Nos endpoints que retornam dados dos usuários estão sendo retornados todos os campos da entidade
+* Nos endpoints que retornam dados dos usuários estão sendo retornados todos os campos da entidade
 para facilitar a visualização dos dados testados. 
+
+
+* O CPF foi utilizado como chave de negócio para cadastro e consulta dos usuários, não foi feita validação do campo para facilitação nos testes.
