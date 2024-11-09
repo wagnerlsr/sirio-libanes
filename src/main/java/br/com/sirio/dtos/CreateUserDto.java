@@ -3,7 +3,9 @@ package br.com.sirio.dtos;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import lombok.Builder;
 
+@Builder
 public record CreateUserDto(
         @NotNull(message = "cpf.null")
         @NotBlank(message = "cpf.blank")
@@ -25,7 +27,7 @@ public record CreateUserDto(
         Integer zipCode,
 
         @NotNull(message = "address.null")
-        @NotBlank(message = "_address.blank")
+        @NotBlank(message = "address.blank")
         @JsonProperty("address")
         String address,
 

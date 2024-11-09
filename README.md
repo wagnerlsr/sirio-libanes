@@ -7,9 +7,18 @@ Github:
 * [Clonar o projeto do Github](https://github.com/wagnerlsr/sirio-libanes)
 
 ###
+## Execução do banco de dados
+
+Antes de subir o aplicatico acessar o diretorio do projeto e executar o comando abaixo:
+* `docker-compose up -d`
+
+Parando o banco de dados:
+* `docker-compose down`
+
+####
 ## Instruções para build e execução do projeto
 
-Para buildar o aplicatico acessar o diretorio do projeto e executar o comando abaixo: 
+Para buildar o aplicatico acessar o diretorio do projeto e executar o comando abaixo:
 * `mvn clean install`
 
 Após o build entrar na pasta target/ e executar a aplicação:
@@ -22,7 +31,7 @@ Para executar os testes unitários:
 ## Acesso a aplicação e execução dos testes
 
 Para acessar o cliente da API usar o link abaixo:
-* [Link de acesso ao portal](http://localhost:3000/swagger-ui/index.html)
+* Link de acesso ao portal - [http://localhost:3000/swagger-ui/index.html](http://localhost:3000/swagger-ui/index.html)
 * [POST /login](http://localhost:3000/swagger-ui/index.html#/user-controller/authenticateUser) - endpoint de login para recuparação do token de acesso
 
 ## Endpoints com a role ADMIN para acesso por usuários com perfil de administrador:
@@ -48,3 +57,7 @@ Será criado um usário com perfil administrador
 * `CPF: 99999999999`
 * `Password: admin`
 
+##
+## Justificativas
+Nos endpoints que retornam dados dos usuários estão sendo retornados todos os campos da entidade
+para facilitar a visualização dos dados testados. 

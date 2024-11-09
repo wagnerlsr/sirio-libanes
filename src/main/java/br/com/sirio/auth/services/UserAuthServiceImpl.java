@@ -52,6 +52,7 @@ public class UserAuthServiceImpl {
                 .additionalAddress(createUserDto.additionalAddress())
                 .district(createUserDto.district())
                 .state(createUserDto.state())
+                .zipCode(createUserDto.zipCode())
                 .status(StatusType.ACTIVE)
                 .createdAt(Instant.now())
                 .createdUser(getCurrentUserId(authentication))
