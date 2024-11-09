@@ -61,7 +61,7 @@ public class UserController {
 			return ResponseEntity.status(HttpStatus.CREATED).body(userAuthService.createUser(createUserDto, authentication));
 		}
 
-		return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		throw new RuntimeException("Usuário não autorizado.");
 	}
 
 	@Operation(summary = "Listar todos usuários", description = "Acesso apenas para administradores")
@@ -77,7 +77,7 @@ public class UserController {
 			return ResponseEntity.status(HttpStatus.OK).body(userService.getUsers());
 		}
 
-		return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		throw new RuntimeException("Usuário não autorizado.");
 	}
 
 	@Operation(summary = "Obter um usuário", description = "Acessar dados do usuário")
@@ -93,7 +93,7 @@ public class UserController {
 			return ResponseEntity.status(HttpStatus.OK).body(userService.getUser(cpf));
 		}
 
-		return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		throw new RuntimeException("Usuário não autorizado.");
 	}
 
 	@Operation(summary = "Atualizar usuário", description = "Atualizar os dados do usário")
@@ -111,7 +111,7 @@ public class UserController {
 			return ResponseEntity.status(HttpStatus.OK).body(userService.updateUser(cpf, updateUserDto, userAuthService.getCurrentUserId(authentication)));
 		}
 
-		return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		throw new RuntimeException("Usuário não autorizado.");
 	}
 
 	@Operation(summary = "Remover usuário", description = "Marcar usário como removido")
@@ -129,6 +129,6 @@ public class UserController {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		}
 
-		return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		throw new RuntimeException("Usuário não autorizado.");
 	}
 }

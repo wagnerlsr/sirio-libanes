@@ -15,6 +15,7 @@ public record CreateUserDto(
         String cpf,
 
         @Size(min = 4, max = 20, message = "Senha de ter entre 4 a 20 caracteres.")
+        @NotBlank(message = "Senha não pode ser nula ou estar em branco.")
         @JsonProperty("password")
         String password,
 
