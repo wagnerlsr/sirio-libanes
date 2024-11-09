@@ -192,7 +192,7 @@ public class UserControllerTests {
         mvc.perform(get("/users/99999999999")
                         .header(HttpHeaders.AUTHORIZATION, jwtToken.token())
                         .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isUnauthorized());
+                .andExpect(status().isBadRequest());
     }
 
     @Test
